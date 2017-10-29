@@ -5,7 +5,7 @@ import store from './store'
 import route from './route'
 import registerServiceWorker from './registerServiceWorker';
 
-import './assetes/styles/index.css';
+import './style/index.less';
 
 
 ReactDOM.render(

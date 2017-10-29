@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from 'antd-mobile';
-import logo from '../assetes/images/logo.svg';
-import '../assetes/styles/app.css';
+import logo from '../assetes/logo.svg';
+import '../style/app.css';
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
           To get started, edit <code>src/app.js</code> and save to reload.
         </p>
         <Button>Button</Button>
-        <Link to="/log">go Log</Link>
+        <Link to={{pathname: '/log', query: {id: 1}}}>go Log</Link>
       </div>
     );
   }
