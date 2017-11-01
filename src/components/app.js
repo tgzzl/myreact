@@ -3,8 +3,15 @@ import {Link} from 'react-router-dom';
 import {Button} from 'antd-mobile';
 import logo from '../assetes/logo.svg';
 import '../style/app.css';
+import {connect} from 'react-redux'
+import store from '../store'
 
 class App extends Component {
+  componentDidMount() {
+   console.log('======', store.getState())
+    this.props.dispatch({type: 'TEST', data: 'test'})
+  }
+
   render() {
     return (
       <div className="App">
@@ -22,4 +29,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(state => ({location: state.location}))(App);

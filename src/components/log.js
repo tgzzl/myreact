@@ -2,6 +2,7 @@ import '../style/log.less';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {PullToRefresh, ListView, Grid} from 'antd-mobile';
+import {connect} from 'react-redux'
 
 const data = [
   {
@@ -66,6 +67,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch({type: 'TEST', data: 'test'})
+
     if (this.state.gridMode) {
       const hei = this.state.height - ReactDOM.findDOMNode(this.lvGrid).offsetTop;
       setTimeout(() => {
@@ -313,4 +316,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(state => ({location: state.location}))(App);
