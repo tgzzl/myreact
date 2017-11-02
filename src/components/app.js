@@ -3,13 +3,12 @@ import {Link} from 'react-router-dom';
 import {Button} from 'antd-mobile';
 import logo from '../assetes/logo.svg';
 import '../style/app.css';
-import {connect} from 'react-redux'
 import store from '../store'
 
 class App extends Component {
   componentDidMount() {
-   console.log('======', store.getState())
-    this.props.dispatch({type: 'TEST', data: 'test'})
+    console.log('======', store.getState().authReducer)
+    // store.dispatch({type: 'TEST', data: 'test'})
   }
 
   render() {
@@ -22,11 +21,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/app.js</code> and save to reload.
         </p>
-        <Button>Button</Button>
-        <Link to={{pathname: '/log', query: {id: 1}}}>go Log</Link>
+        <Button><Link to={{pathname: '/log', query: {id: 1}}}>go Log</Link></Button>
       </div>
     );
   }
 }
 
-export default connect(state => ({location: state.location}))(App);
+// export default connect(state => ({location: state.location}))(App);
+export default App;

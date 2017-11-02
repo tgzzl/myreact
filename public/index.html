@@ -38,11 +38,14 @@
     -->
   </body>
   <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+  <script src="./vconsole.min.js"></script>
   <script>
     if ('addEventListener' in document) {
       document.addEventListener('DOMContentLoaded', function() {
         FastClick.attach(document.body);
       }, false);
     }
+    var vConsole = new VConsole();
+    console.log('Hello world');
   </script>
 </html>

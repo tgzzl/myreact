@@ -2,7 +2,9 @@ import '../style/log.less';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {PullToRefresh, ListView, Grid} from 'antd-mobile';
-import {connect} from 'react-redux'
+import store from '../store'
+import stickyfill from 'stickyfilljs'
+import 'vconsole'
 
 const data = [
   {
@@ -63,11 +65,13 @@ class App extends Component {
   // }
 
   componentDidUpdate() {
-    document.body.style.overflow = 'hidden';
+    // document.body.style.overflow = 'hidden';
   }
 
   componentDidMount() {
-    this.props.dispatch({type: 'TEST', data: 'test'})
+    console.log('=======', this.props.location.query)
+    store.dispatch({type: 'TEST', data: 'test'})
+    stickyfill.addOne(ReactDOM.findDOMNode(this.sticky))
 
     if (this.state.gridMode) {
       const hei = this.state.height - ReactDOM.findDOMNode(this.lvGrid).offsetTop;
@@ -123,7 +127,7 @@ class App extends Component {
   onEndReached = (event) => {
     // load new data
     // hasMore: from backend data, indicates whether it is the last page, here is false
-    if (this.state.isLoading && !this.state.hasMore) {
+    /*if (this.state.isLoading && !this.state.hasMore) {
       return;
     }
     console.log('reach end', event);
@@ -134,7 +138,7 @@ class App extends Component {
         dataSource: this.state.dataSource.cloneWithRows(this.rData),
         isLoading: false,
       });
-    }, 1000);
+    }, 1000);*/
   };
 
   onEndReachedGrid = (event) => {
@@ -250,7 +254,9 @@ class App extends Component {
 
     return (
       <div className="page-log">
-        <header className="header">
+        <div ref={el => this.search = el} className="search"/>
+        {/*<img style={{width: '100%'}} src="https://f10.baidu.com/it/u=2987595138,4271236850&fm=72"/>*/}
+        <header ref={el => this.sticky = el} className="header sticky">
           <span className="arrow__up-down" onClick={this.toggle.bind(this, 0)}>新品</span>
           <span className="arrow__up-down" onClick={this.toggle.bind(this, 1)}>价格</span>
           <span onClick={this.toggleMode}>模式</span>
@@ -264,10 +270,11 @@ class App extends Component {
           <div className="mask" onClick={this.closeMenu.bind(this, null)}></div>
         </nav>
         <ListView
+          useBodyScroll
           key="1"
           ref={el => this.lvGrid = el}
           style={{
-            height: this.state.height,
+            // height: this.state.height,
             border: '1px solid #ddd',
             margin: '5px 0',
             display: this.state.gridMode ? 'block' : 'none'
@@ -288,10 +295,11 @@ class App extends Component {
           pageSize={3}
         />
         <ListView
+          useBodyScroll
           key="2"
           ref={el => this.lv = el}
           style={{
-            height: this.state.height,
+            // height: this.state.height,
             border: '1px solid #ddd',
             margin: '5px 0',
             display: this.state.gridMode ? 'none' : 'block'
@@ -316,4 +324,5 @@ class App extends Component {
   }
 }
 
-export default connect(state => ({location: state.location}))(App);
+// export default connect(state => ({location: state.location}))(App);
+export default App;

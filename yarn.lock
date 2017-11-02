@@ -6405,6 +6405,10 @@ statuses@~1.3.1:
   version "1.3.1"
   resolved "http://registry.npm.taobao.org/statuses/download/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
 
+stickyfilljs@^2.0.2:
+  version "2.0.2"
+  resolved "http://registry.npm.taobao.org/stickyfilljs/download/stickyfilljs-2.0.2.tgz#d0fb324d4cb68926f86a49a22365734e828d7109"
+
 stream-browserify@^2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/stream-browserify/download/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"
@@ -6890,6 +6894,10 @@ value-equal@^0.4.0:
 vary@~1.1.2:
   version "1.1.2"
   resolved "http://registry.npm.taobao.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
+
+vconsole@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/vconsole/download/vconsole-3.0.0.tgz#54ca3872677e8faf6e42fdfb6111109242e3f09b"
 
 vendors@^1.0.0:
   version "1.0.1"
