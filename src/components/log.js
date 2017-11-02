@@ -69,8 +69,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('=======', this.props.location.query)
-    store.dispatch({type: 'TEST', data: 'test'})
+    store.dispatch({type: '', data: {data: 'test'}})
     stickyfill.addOne(ReactDOM.findDOMNode(this.sticky))
 
     if (this.state.gridMode) {

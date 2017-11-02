@@ -1,18 +1,10 @@
 const initialState = {
-  data: ''
+  data: '',
+  selectedTab: 'redTab'
 }
 
-const authReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case 'TEST':
-      return Object.assign({}, ...state, {
-        data: action.data
-      });
-    default:
-      return {...state};
-  }
+const globalState = (state = initialState, action) => {
+  return {...state, ...action.data}
 }
 
-export default {
-  authReducer
-}
+export default globalState

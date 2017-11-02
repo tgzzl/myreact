@@ -1,10 +1,10 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import middleware from 'redux-thunk'
 
-import reducers from './reducers'
+import globalState from './reducers'
 
 const store = createStore(
-  combineReducers({...reducers}),
+  combineReducers({globalState}),
   applyMiddleware(middleware)
 );
 
